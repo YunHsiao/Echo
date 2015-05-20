@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<BGM>1</BGM>
+
+<Player>
+	<Position x="100" y="350"/>
+	<Direction x="1" y="0"/>
+</Player>
+
+<Monster>
+	<Position x="350" y="150"/>
+</Monster>
+
+<Wall>
+	<Position x="50" y="300"/>
+	<Position x="250" y="300"/>
+	<Position x="350" y="100"/>
+	<Position x="450" y="300"/>
+	<Position x="650" y="300"/>
+	<Position x="650" y="500"/>
+	<Position x="450" y="500"/>
+	<Position x="350" y="600"/>
+	<Position x="250" y="500"/>
+	<Position x="50" y="500"/>
+</Wall>
+
+<Exit>
+	<Position x="550" y="300"/>
+	<Position x="650" y="300"/>
+	<Position x="650" y="500"/>
+	<Position x="550" y="500"/>
+</Exit>
+
+<Trap>
+</Trap>
+
+<Water>
+</Water>
+
+<Trigger>
+</Trigger>
+
+<Dirt>
+	<Position x="350" y="100"/>
+	<Position x="550" y="500"/>
+	<Position x="350" y="600"/>
+	<Position x="150" y="500"/>
+</Dirt>
+
+<Gritty>
+</Gritty>
+
+<Stone>
+</Stone>
+
+<StoneAlt>
+</StoneAlt>
+
+<Wet>
+</Wet>
+
+<Wood>
+</Wood>
+
+<Tips>
+	<Move rid="7" x="400" y="350">
+</Tips>
+
+<Decorations>
+	<Move sid="62" x="350" y="350">
+</Decorations>

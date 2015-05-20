@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="gb2312"?>
+<STRING>
+  <TAB>5</TAB><!--TAB页的数量-->
+  <TAB1 str="元素"></TAB1>
+  <TAB2 str="NPC"    ></TAB2>
+  <TAB3 str="怪物"></TAB3>
+  <TAB4 str="碰撞"></TAB4>
+  <TAB5 str="触发"></TAB5>
+  <BRUSHBUTTON>20</BRUSHBUTTON><!--元素数量-->
+  <BRUSH1  str="塔楼"></BRUSH1>
+  <BRUSH2  str="房子"></BRUSH2>
+  <BRUSH3  str="旗帜"></BRUSH3>
+  <BRUSH4  str="树木"></BRUSH4>
+  <BRUSH5  str="草槽"></BRUSH5>
+  <BRUSH6  str="水槽"></BRUSH6>
+  <BRUSH7  str="楼梯"></BRUSH7>
+  <BRUSH8  str="火堆"></BRUSH8>
+  <BRUSH9  str="木桶"></BRUSH9>
+  <BRUSH10 str="木箱"></BRUSH10>
+  <BRUSH11 str="树根"></BRUSH11>
+  <BRUSH12 str="树根"></BRUSH12>
+  <BRUSH13 str="树根"></BRUSH13>
+  <BRUSH14 str="树根"></BRUSH14>
+  <BRUSH15 str="树根"></BRUSH15>
+  <BRUSH16 str="树根"></BRUSH16>
+  <BRUSH17 str="树根"></BRUSH17>
+  <BRUSH18 str="树根"></BRUSH18>
+  <BRUSH19 str="树根"></BRUSH19>
+  <BRUSH20 str="树根"></BRUSH20>
+  <NPCBUTTON>16</NPCBUTTON><!--NPC数量-->
+  <NPC1     str="武器店"     ></NPC1>
+  <NPC2     str="商店与店主" ></NPC2>
+  <NPC3     str="装备店长"   ></NPC3>
+  <NPC4     str="任务委托人" ></NPC4>
+  <NPC5     str="银行职员"   ></NPC5>
+  <NPC6     str="技能老师"   ></NPC6>
+  <NPC7     str="铁匠"       ></NPC7>
+  <NPC8     str="村长"       ></NPC8>
+  <NPC9     str="皮革商人"   ></NPC9>
+  <NPC10     str="装备店长"   ></NPC10>
+  <NPC11     str="任务委托人" ></NPC11>
+  <NPC12     str="银行职员"   ></NPC12>
+  <NPC13     str="技能老师"   ></NPC13>
+  <NPC14     str="铁匠"       ></NPC14>
+  <NPC15     str="村长"       ></NPC15>
+  <NPC16     str="皮革商人"   ></NPC16>
+	  
+<MONSTERBUTTON>1</MONSTERBUTTON><!--怪物数量-->
+  <MONSTER1 str="恶魔"></MONSTER1>
+  <COLLBUTTON>2</COLLBUTTON><!--碰撞数量-->
+  <COLL1    str="碰撞"></COLL1>
+  <COLL2    str="擦除"></COLL2>
+  <TRIGBUTTON>1</TRIGBUTTON><!--触发数量-->
+  <TRIG1    str="触发"></TRIG1>
+</STRING>

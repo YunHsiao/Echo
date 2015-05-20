@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="gb2312"?>
+<RESOURCE>
+  <MAXLAYOUT>7</MAXLAYOUT>
+  <BRUSH    path="Res/Brush/b%1ld.png"        num="11" ></BRUSH>
+  <NPC      path="Res/Npc/npc%1ld.png"        num="8" ></NPC>
+  <MONSTER  path="Res/Monster/mon%1ld.png"    num="1" ></MONSTER>
+  <COLL     path="Res/Coll/c%1ld.png"         num="2" ></COLL>
+  <TRIG     path="Res/Trigger/t%1ld.png"      num="16"></TRIG>
+  <SHADOW   path="Res/Back/Map00%1ld.png"     num="3"></SHADOW>
+  <BACK     path="Res/Back/Map00%d.jpg"       num="3" ></BACK>
+</RESOURCE>

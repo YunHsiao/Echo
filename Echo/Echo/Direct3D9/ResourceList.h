@@ -1,0 +1,11 @@
+#pragma once
+
+enum ResourceList {
+	RL_LEFT_FOOTPRINT,
+	RL_RIGHT_FOOTPRINT,
+	RL_ECHO,
+	RL_EAR_PHONE,
+	RL_START,
+	RL_QUALITY,
+	RL_WHITE
+};

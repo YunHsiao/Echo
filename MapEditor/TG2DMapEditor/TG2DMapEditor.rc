@@ -1,0 +1,514 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#ifndef APSTUDIO_INVOKED
+#include "targetver.h"
+#endif
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// 中文(中华人民共和国) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_CHS)
+#ifdef _WIN32
+LANGUAGE LANG_CHINESE, SUBLANG_CHINESE_SIMPLIFIED
+#pragma code_page(936)
+#endif //_WIN32
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#ifndef APSTUDIO_INVOKED\r\n"
+    "#include ""targetver.h""\r\n"
+    "#endif\r\n"
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "#define _AFX_NO_OLE_RESOURCES\r\n"
+    "#define _AFX_NO_TRACKER_RESOURCES\r\n"
+    "#define _AFX_NO_PROPERTY_RESOURCES\r\n"
+    "\r\n"
+    "#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_CHS)\r\n"
+    "LANGUAGE 4, 2\r\n"
+    "#pragma code_page(936)\r\n"
+    "#include ""res\\TG2DMapEditor.rc2""  // 非 Microsoft Visual C++ 编辑的资源\r\n"
+    "#include ""l.CHS\\afxres.rc""          // 标准组件\r\n"
+    "#endif\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDR_MAINFRAME           ICON                    "res\\TG2DMapEditor.ico"
+IDR_MapEditTYPE         ICON                    "res\\TG2DMapEditorDoc.ico"
+IDI_ICONCOLL            ICON                    "res\\coll.ico"
+IDI_ICONNONCOLL         ICON                    "res\\noncoll.ico"
+IDI_ICONTRIG            ICON                    "res\\t17.ico"
+IDI_ICON_B01            ICON                    "res\\b1.ico"
+IDI_ICON_B02            ICON                    "res\\b2.ico"
+IDI_ICON_B03            ICON                    "res\\b3.ico"
+IDI_ICON_B04            ICON                    "res\\b4.ico"
+IDI_ICON_B05            ICON                    "res\\b5.ico"
+IDI_ICON_B06            ICON                    "res\\b6.ico"
+IDI_ICON_B07            ICON                    "res\\b7.ico"
+IDI_ICON_B08            ICON                    "res\\b8.ico"
+IDI_ICON_B09            ICON                    "res\\b9.ico"
+IDI_ICON_B10            ICON                    "res\\b10.ico"
+IDI_ICON_B11            ICON                    "res\\b11.ico"
+IDI_ICON_NPC1           ICON                    "res\\npc1.ico"
+IDI_ICON_MON1           ICON                    "res\\mon1.ico"
+IDI_ICON_NPC4           ICON                    "res\\npc2.ico"
+IDI_ICON_NPC5           ICON                    "res\\npc3.ico"
+IDI_ICON_NPC6           ICON                    "res\\npc4.ico"
+IDI_ICON_NPC7           ICON                    "res\\npc5.ico"
+IDI_ICON_NPC8           ICON                    "res\\npc6.ico"
+IDI_ICON_NPC9           ICON                    "res\\npc7.ico"
+IDI_ICON_NPC2           ICON                    "res\\npc8.ico"
+IDI_ICON_NPC3           ICON                    "res\\npc9.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Menu
+//
+
+IDR_MAINFRAME MENU 
+BEGIN
+    POPUP "文件(&F)"
+    BEGIN
+        MENUITEM "新建地图(&N)\tCtrl+N",            ID_FILE_NEW
+        MENUITEM "打开地图(&O)...\tCtrl+O",         ID_FILE_OPEN
+        MENUITEM "关闭地图(&C)\tCtrl+C",            ID_FILE_CLOSE
+        MENUITEM "保存地图(&S)\tCtrl+S",            ID_FILE_SAVE
+        MENUITEM SEPARATOR
+        MENUITEM "退出(&X)",                      ID_APP_EXIT
+    END
+    POPUP "编辑(&E)"
+    BEGIN
+        MENUITEM "撤消(&U)\tCtrl+Z",              ID_EDIT_UNDO
+    END
+    POPUP "图层(&I)"
+    BEGIN
+        MENUITEM "画刷层",                         ID_LAYOUTBRUSH
+        MENUITEM "NPC层",                        ID_LAYOUTNPC
+        MENUITEM "怪物层",                         ID_LAYOUTMONSTER
+        MENUITEM "碰撞层",                         ID_LAYOUTCOLL
+        MENUITEM "触发层",                         ID_LAYOUTTRIGGER
+        MENUITEM "查看所有层",                       ID_LAYOUTALL
+    END
+    POPUP "地图(&M)"
+    BEGIN
+        MENUITEM "地图属性(&A)",                    ID_BACKSELECT
+        MENUITEM "地图测试(&T)",                    ID_MAPTEST
+        MENUITEM SEPARATOR
+        MENUITEM "碰撞层插值渲染",                     ID_32818
+    END
+    POPUP "帮助(&H)"
+    BEGIN
+        MENUITEM "关于 MapEdit(&A)...",           ID_APP_ABOUT
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Accelerator
+//
+
+IDR_MAINFRAME ACCELERATORS 
+BEGIN
+    "N",            ID_FILE_NEW,            VIRTKEY, CONTROL
+    "O",            ID_FILE_OPEN,           VIRTKEY, CONTROL
+    "S",            ID_FILE_SAVE,           VIRTKEY, CONTROL
+    "Z",            ID_EDIT_UNDO,           VIRTKEY, CONTROL
+    "X",            ID_EDIT_CUT,            VIRTKEY, CONTROL
+    "C",            ID_EDIT_COPY,           VIRTKEY, CONTROL
+    "V",            ID_EDIT_PASTE,          VIRTKEY, CONTROL
+    VK_BACK,        ID_EDIT_UNDO,           VIRTKEY, ALT
+    VK_DELETE,      ID_EDIT_CUT,            VIRTKEY, SHIFT
+    VK_INSERT,      ID_EDIT_COPY,           VIRTKEY, CONTROL
+    VK_INSERT,      ID_EDIT_PASTE,          VIRTKEY, SHIFT
+    VK_F6,          ID_NEXT_PANE,           VIRTKEY 
+    VK_F6,          ID_PREV_PANE,           VIRTKEY, SHIFT
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_ABOUTBOX DIALOGEX 0, 0, 170, 62
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+EXSTYLE WS_EX_TOPMOST
+CAPTION "关于像素地图编辑器"
+FONT 9, "MS Shell Dlg", 0, 0, 0x1
+BEGIN
+    ICON            IDR_MAINFRAME,IDC_STATIC,14,14,20,20
+    LTEXT           "像素地图编辑器",IDC_STATIC,42,14,114,8,SS_NOPREFIX
+    LTEXT           "YunHsiao",IDC_STATIC,42,26,114,8
+    DEFPUSHBUTTON   "确定",IDOK,113,41,50,14,WS_GROUP
+END
+
+IDD_DIALOGBRUSH DIALOGEX 0, 0, 202, 319
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_VISIBLE | WS_CAPTION
+CAPTION "画刷"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    PUSHBUTTON      "2",IDC_BUTTON2,12,60,66,30
+    PUSHBUTTON      "3",IDC_BUTTON3,12,96,66,30
+    PUSHBUTTON      "4",IDC_BUTTON4,12,132,66,30
+    CONTROL         "",IDC_TAB,"SysTabControl32",0x0,6,6,150,306
+    PUSHBUTTON      "5",IDC_BUTTON5,12,168,66,30
+    PUSHBUTTON      "1",IDC_BUTTON1,12,24,66,30
+    PUSHBUTTON      "6",IDC_BUTTON6,12,204,66,30
+    PUSHBUTTON      "7",IDC_BUTTON7,12,240,66,30
+    PUSHBUTTON      "8",IDC_BUTTON8,12,276,66,30
+    PUSHBUTTON      "9",IDC_BUTTON9,84,24,66,30
+    PUSHBUTTON      "10",IDC_BUTTON10,84,60,66,30
+    PUSHBUTTON      "11",IDC_BUTTON11,84,96,66,30
+    PUSHBUTTON      "12",IDC_BUTTON12,84,132,66,30
+    PUSHBUTTON      "13",IDC_BUTTON13,84,168,66,30
+    PUSHBUTTON      "14",IDC_BUTTON14,84,204,66,30
+    PUSHBUTTON      "15",IDC_BUTTON15,84,240,66,30
+    PUSHBUTTON      "16",IDC_BUTTON16,84,276,66,30
+    LISTBOX         IDC_BRUSHLIST,162,18,36,294,LBS_SORT | LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "触发地图ID",IDC_STATIC,162,6,40,8
+END
+
+IDD_DIALOGSETTING DIALOGEX 0, 0, 160, 47
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION
+CAPTION "透明度"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    CONTROL         "",IDC_SLIDER1,"msctls_trackbar32",TBS_BOTH | TBS_NOTICKS | WS_TABSTOP,24,18,102,12
+    LTEXT           "背景",IDC_STATIC,6,18,17,8
+    CTEXT           "255",IDC_STATIC1,126,18,18,8,SS_CENTERIMAGE
+    CTEXT           "255",IDC_STATIC2,126,30,18,8,SS_CENTERIMAGE
+    CONTROL         "",IDC_SLIDER2,"msctls_trackbar32",TBS_BOTH | TBS_NOTICKS | WS_TABSTOP,24,30,102,12
+    LTEXT           "层级",IDC_STATIC,6,30,17,8
+    CONTROL         "边框显示",IDC_CHECK2,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,54,6,48,10
+    CONTROL         "网格显示",IDC_CHECK1,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,6,6,48,10
+    CONTROL         "地图信息",IDC_CHECK3,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,102,6,48,10
+END
+
+IDD_DIALOGTREE DIALOGEX 0, 0, 148, 226
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION
+CAPTION "地图属性"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    PUSHBUTTON      "确定",IDC_BACKOKBUTTON,12,210,50,14
+    EDITTEXT        IDC_TREEEDIT,25,174,113,14,ES_AUTOHSCROLL
+    CTEXT           "名字",IDC_TREESTATIC1,6,176,17,8
+    LTEXT           "ID",IDC_STATIC,14,194,8,8
+    COMBOBOX        IDC_TREECOMBO,25,192,48,30,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    GROUPBOX        "选择背景",IDC_STATIC,6,0,138,168
+    LISTBOX         IDC_BACKLISTBOX,12,12,126,78,LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
+    PUSHBUTTON      "取消",IDC_BACKCANCELBUTTON,84,210,50,14
+    CONTROL         "",IDC_MAPIMAGE,"Static",SS_BLACKFRAME,12,96,126,66
+END
+
+IDD_LOAD DIALOGEX 0, 0, 186, 29
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION
+EXSTYLE WS_EX_TOPMOST
+CAPTION "加载资源"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    CONTROL         "",IDC_PROGRESS1,"msctls_progress32",WS_BORDER,6,6,168,14
+END
+
+IDD_DIALOGTEST DIALOGEX 0, 0, 262, 167
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "测试"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 1,0,0,0
+ PRODUCTVERSION 1,0,0,0
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "080403a8"
+        BEGIN
+            VALUE "CompanyName", "YunHsiao"
+            VALUE "FileDescription", "像素地图编辑器"
+            VALUE "FileVersion", "1.0.0.0"
+            VALUE "InternalName", "MapEdit.exe"
+            VALUE "OriginalFilename", "MapEdit.exe"
+            VALUE "ProductName", "像素地图编辑器"
+            VALUE "ProductVersion", "1.0.0.0"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x804, 936
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO 
+BEGIN
+    IDD_ABOUTBOX, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 163
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 55
+    END
+
+    IDD_DIALOGBRUSH, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 195
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 312
+    END
+
+    IDD_DIALOGSETTING, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 156
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 40
+    END
+
+    IDD_DIALOGTREE, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 141
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 219
+    END
+
+    IDD_LOAD, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 179
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 22
+    END
+
+    IDD_DIALOGTEST, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 255
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 160
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Bitmap
+//
+
+IDB_BITMAPMOVE          BITMAP                  "res\\move.bmp"
+IDB_BITMAP1             BITMAP                  "res\\Map001.bmp"
+IDB_BITMAP2             BITMAP                  "res\\Map002.bmp"
+IDB_BITMAP3             BITMAP                  "res\\Map003.bmp"
+IDB_BITMAP4             BITMAP                  "res\\Map004.bmp"
+IDB_BITMAP5             BITMAP                  "res\\Map005.bmp"
+IDB_BITMAP6             BITMAP                  "res\\Map006.bmp"
+IDB_BITMAP7             BITMAP                  "res\\Map007.bmp"
+IDB_BITMAP8             BITMAP                  "res\\Map008.bmp"
+IDB_BITMAP9             BITMAP                  "res\\Map009.bmp"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Cursor
+//
+
+IDC_CURSOR1             CURSOR                  "res\\coll.cur"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE 
+BEGIN
+    IDP_OLE_INIT_FAILED     "OLE 初始化失败。请确保 OLE 库是正确的版本。"
+END
+
+STRINGTABLE 
+BEGIN
+    IDR_MAINFRAME           "MapEdit\n\nMapEdit\n\n\nMapEdit.Document\nMapEdit.Document"
+END
+
+STRINGTABLE 
+BEGIN
+    AFX_IDS_APP_TITLE       "MapEdit"
+    AFX_IDS_IDLEMESSAGE     "就绪"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_INDICATOR_EXT        "EXT"
+    ID_INDICATOR_CAPS       "CAP"
+    ID_INDICATOR_NUM        "NUM"
+    ID_INDICATOR_SCRL       "SCRL"
+    ID_INDICATOR_OVR        "OVR"
+    ID_INDICATOR_REC        "REC"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_FILE_NEW             "创建新文档\n新建"
+    ID_FILE_OPEN            "打开现有文档\n打开"
+    ID_FILE_CLOSE           "关闭活动文档\n关闭"
+    ID_FILE_SAVE            "保存活动文档\n保存"
+    ID_FILE_SAVE_AS         "用新名称保存活动文档\n另存为"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_APP_ABOUT            "显示程序信息、版本号和版权\n关于"
+    ID_APP_EXIT             "退出应用程序；提示保存文档\n退出"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_FILE_MRU_FILE1       "打开此文档"
+    ID_FILE_MRU_FILE2       "打开此文档"
+    ID_FILE_MRU_FILE3       "打开此文档"
+    ID_FILE_MRU_FILE4       "打开此文档"
+    ID_FILE_MRU_FILE5       "打开此文档"
+    ID_FILE_MRU_FILE6       "打开此文档"
+    ID_FILE_MRU_FILE7       "打开此文档"
+    ID_FILE_MRU_FILE8       "打开此文档"
+    ID_FILE_MRU_FILE9       "打开此文档"
+    ID_FILE_MRU_FILE10      "打开此文档"
+    ID_FILE_MRU_FILE11      "打开此文档"
+    ID_FILE_MRU_FILE12      "打开此文档"
+    ID_FILE_MRU_FILE13      "打开此文档"
+    ID_FILE_MRU_FILE14      "打开此文档"
+    ID_FILE_MRU_FILE15      "打开此文档"
+    ID_FILE_MRU_FILE16      "打开此文档"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_NEXT_PANE            "切换到下一个窗格\n下一窗格"
+    ID_PREV_PANE            "切换回上一个窗格\n上一窗格"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_WINDOW_SPLIT         "将活动窗口拆分为多个窗格\n拆分"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_EDIT_CLEAR           "清除选定内容\n清除"
+    ID_EDIT_CLEAR_ALL       "清除全部内容\n全部清除"
+    ID_EDIT_COPY            "复制选定内容并将其放到剪贴板上\n复制"
+    ID_EDIT_CUT             "剪切选定内容并将其放到剪贴板上\n剪切"
+    ID_EDIT_FIND            "查找指定的文本\n查找"
+    ID_EDIT_PASTE           "插入剪贴板内容\n粘贴"
+    ID_EDIT_REPEAT          "重复上一操作\n重复"
+    ID_EDIT_REPLACE         "用其他文本替换特定的文本\n替换"
+    ID_EDIT_SELECT_ALL      "选定整个文档\n全选"
+    ID_EDIT_UNDO            "撤消上一操作\n撤消"
+    ID_EDIT_REDO            "恢复上次撤消的操作\n重做"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_VIEW_STATUS_BAR      "显示或隐藏状态栏\n切换状态栏"
+END
+
+STRINGTABLE 
+BEGIN
+    AFX_IDS_SCSIZE          "更改窗口大小"
+    AFX_IDS_SCMOVE          "更改窗口位置"
+    AFX_IDS_SCMINIMIZE      "将窗口缩小为图标"
+    AFX_IDS_SCMAXIMIZE      "使窗口最大化显示"
+    AFX_IDS_SCNEXTWINDOW    "切换到下一个文档窗口"
+    AFX_IDS_SCPREVWINDOW    "切换到前一个文档窗口"
+    AFX_IDS_SCCLOSE         "关闭活动窗口并提示保存文档"
+END
+
+STRINGTABLE 
+BEGIN
+    AFX_IDS_SCRESTORE       "将窗口恢复到正常大小"
+    AFX_IDS_SCTASKLIST      "激活任务列表"
+END
+
+#endif    // 中文(中华人民共和国) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#define _AFX_NO_OLE_RESOURCES
+#define _AFX_NO_TRACKER_RESOURCES
+#define _AFX_NO_PROPERTY_RESOURCES
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_CHS)
+LANGUAGE 4, 2
+#pragma code_page(936)
+#include "res\TG2DMapEditor.rc2"  // 非 Microsoft Visual C++ 编辑的资源
+#include "l.CHS\afxres.rc"          // 标准组件
+#endif
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

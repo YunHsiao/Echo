@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<BGM>0</BGM>
+
+<Player>
+	<Position x="100" y="450"/>
+	<Direction x="1" y="0"/>
+</Player>
+
+<Wall>
+	<Position x="50" y="300"/>
+	<Position x="250" y="300"/>
+	<Position x="350" y="100"/>
+	<Position x="450" y="300"/>
+	<Position x="650" y="300"/>
+	<Position x="650" y="500"/>
+	<Position x="450" y="500"/>
+	<Position x="350" y="600"/>
+	<Position x="250" y="500"/>
+	<Position x="50" y="500"/>
+</Wall>
+
+<Exit>
+	<Position x="550" y="299"/>
+	<Position x="651" y="299"/>
+	<Position x="651" y="501"/>
+	<Position x="550" y="501"/>
+</Exit>
+
+<Dirt>
+	<Position x="350" y="100"/>
+	<Position x="450" y="300"/>
+	<Position x="350" y="600"/>
+	<Position x="250" y="300"/>
+</Dirt>
+
+<Tips>
+	<Level rid="7" x="500" y="280"/>
+	<Tip rid="8" x="430" y="0"/>
+	<Tip rid="15" x="900" y="320"/>
+</Tips>

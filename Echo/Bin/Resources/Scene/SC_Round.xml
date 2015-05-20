@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<BGM>1</BGM>
+
+<Player>
+	<Position x="430" y="250"/>
+	<Direction x="1" y="0"/>
+</Player>
+
+<Wall>
+    <Position x="56" y="272"/>
+    <Position x="256" y="272"/>
+    <Position x="272" y="344"/>
+    <Position x="328" y="400"/>
+    <Position x="376" y="432"/>
+    <Position x="440" y="440"/>
+    <Position x="504" y="424"/>
+    <Position x="552" y="376"/>
+    <Position x="568" y="328"/>
+    <Position x="576" y="280"/>
+    <Position x="776" y="288"/>
+    <Position x="784" y="224"/>
+    <Position x="568" y="224"/>
+    <Position x="552" y="144"/>
+    <Position x="496" y="80"/>
+    <Position x="424" y="56"/>
+    <Position x="344" y="72"/>
+    <Position x="296" y="104"/>
+    <Position x="264" y="152"/>
+    <Position x="256" y="224"/>
+    <Position x="56" y="224"/>
+</Wall>
+
+<Exit>
+    <Position x="700" y="200"/>
+    <Position x="700" y="300"/>
+    <Position x="800" y="300"/>
+    <Position x="800" y="200"/>
+</Exit>

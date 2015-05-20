@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<BGM>2</BGM>
+
+<Player>
+	<Position x="80" y="400"/>
+	<Direction x="1" y="0"/>
+</Player>
+
+<Wall>
+	<Position x="50" y="370"/>
+	<Position x="315" y="370"/>
+	<Position x="325" y="340"/>
+	<Position x="375" y="340"/>
+	<Position x="385" y="370"/>
+	<Position x="650" y="370"/>
+	<Position x="650" y="430"/>
+	<Position x="385" y="430"/>
+	<Position x="375" y="460"/>
+	<Position x="325" y="460"/>
+	<Position x="315" y="430"/>
+	<Position x="50" y="430"/>
+</Wall>
+
+<Exit>
+	<Position x="550" y="299"/>
+	<Position x="651" y="299"/>
+	<Position x="651" y="501"/>
+	<Position x="550" y="501"/>
+</Exit>
+
+<Monster>
+	<Position x="350" y="350"/>
+	<Position x="350" y="450"/>
+</Monster>
+
+<Wet>
+	<Position x="350" y="100"/>
+	<Position x="450" y="300"/>
+	<Position x="350" y="600"/>
+	<Position x="250" y="300"/>
+</Wet>
+
+<Tips>
+	<Level rid="12" x="500" y="280"/>
+	<Tip rid="13" x="450" y="50"/>
+</Tips>
+
+<Decorations>
+	<Waterdrop sid="62" x="350" y="380"/>
+</Decorations>

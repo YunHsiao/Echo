@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<BGM>0</BGM>
+
+<Player>
+	<Position x="330" y="260"/>
+	<Direction x="1" y="0"/>
+</Player>
+
+<Wall>
+    <Position x="416" y="160"/>
+    <Position x="616" y="24"/>
+    <Position x="672" y="64"/>
+    <Position x="504" y="224"/>
+    <Position x="496" y="256"/>
+    <Position x="704" y="272"/>
+    <Position x="704" y="320"/>
+    <Position x="488" y="304"/>
+    <Position x="488" y="336"/>
+    <Position x="640" y="416"/>
+    <Position x="968" y="416"/>
+    <Position x="1240" y="64"/>
+    <Position x="1440" y="64"/>
+    <Position x="1288" y="295"/>
+    <Position x="1832" y="296"/>
+    <Position x="1840" y="416"/>
+    <Position x="1192" y="416"/>
+    <Position x="1320" y="528"/>
+    <Position x="1232" y="656"/>
+    <Position x="1064" y="520"/>
+    <Position x="968" y="600"/>
+    <Position x="640" y="600"/>
+    <Position x="416" y="400"/>
+    <Position x="400" y="408"/>
+    <Position x="360" y="416"/>
+    <Position x="312" y="400"/>
+    <Position x="264" y="384"/>
+    <Position x="232" y="360"/>
+    <Position x="208" y="328"/>
+    <Position x="200" y="288"/>
+    <Position x="192" y="248"/>
+    <Position x="200" y="208"/>
+    <Position x="208" y="168"/>
+    <Position x="232" y="144"/>
+    <Position x="264" y="120"/>
+    <Position x="296" y="96"/>
+    <Position x="320" y="88"/>
+    <Position x="360" y="88"/>
+</Wall>
+
+<Exit>
+    <Position x="1750" y="200"/>
+    <Position x="1750" y="500"/>
+    <Position x="1850" y="500"/>
+    <Position x="1850" y="200"/>
+</Exit>
+
+<Tips>
+	<Level rid="14" x="750" y="200"/>
+	<Tip rid="15" x="450" y="250"/>
+	<Tip rid="16" x="1077" y="384"/>
+</Tips>
