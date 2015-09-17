@@ -47,7 +47,7 @@ void CElement::Tick(DWORD fElapsedTime) {
 	Update();
 }
 
-ID3DXSprite* CElement::Render(const D3DXVECTOR3& pos, BOOL highQuality) {
+ID3DXSprite* CElement::Render(const D3DXVECTOR3& pos) {
 	if (IsGone()) return NULL;
 	ID3DXSprite* sprite = CDirect3D9::GetInstance()->GetSprite();
 	if (!m_bUI) {

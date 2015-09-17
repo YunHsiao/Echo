@@ -14,16 +14,18 @@ CElementManager::~CElementManager()
 }
 
 void CElementManager::Clear() {
-	for (ElementsIt it(m_pEcho.begin()); it != m_pEcho.end(); ++it) 
+	for (ElementsIt it(m_pElements.begin()); it != m_pElements.end(); ++it) 
+		SAFE_DELETE(*it) m_pElements.clear();
+	for (LinesIt it(m_pEcho.begin()); it != m_pEcho.end(); ++it) 
 		SAFE_DELETE(*it) m_pEcho.clear();
-	for (ElementsIt it(m_pAmbience.begin()); it != m_pAmbience.end(); ++it) 
+	for (LinesIt it(m_pAmbience.begin()); it != m_pAmbience.end(); ++it) 
 		SAFE_DELETE(*it) m_pAmbience.clear();
 }
 
 void CElementManager::CreateElement(UINT texture, const SMap *map, FLOAT lastTime, BOOL fadeIn,
 						DWORD color, BOOL ui, const D3DXVECTOR3& pos, const D3DXVECTOR3& dir) 
 {
-	m_pAmbience.push_back(new CElement(texture, map, pos, dir, lastTime, 
+	m_pElements.push_back(new CElement(texture, map, pos, dir, lastTime, 
 		1.f, 1.f, 0.f, fadeIn, color, ui));
 }
 
@@ -66,19 +68,28 @@ void CElementManager::CreateCircle(const D3DXVECTOR3& pos, FLOAT intensity, cons
 void CElementManager::CreateFootprint(const D3DXVECTOR3& pos, 
 		const D3DXVECTOR3& dir, BOOL left, const SMap *map, DWORD color, FLOAT scale) 
 {
-	m_pAmbience.push_back(new CElement(left?RL_LEFT_FOOTPRINT:RL_RIGHT_FOOTPRINT, map,
+	m_pElements.push_back(new CElement(left?RL_LEFT_FOOTPRINT:RL_RIGHT_FOOTPRINT, map,
 		pos, dir, 8000.f, 1.f, scale, 0.f, FALSE, color));
 }
 
 BOOL CElementManager::IsEchoInside(D3DXVECTOR3& pos) {
-	for (ElementsIt it(m_pEcho.begin()); it != m_pEcho.end(); ++it)
+	for (LinesIt it(m_pEcho.begin()); it != m_pEcho.end(); ++it)
 		if (D3DXVec3LengthSq(&((*it)->GetCoord() - pos)) < 900.f) 
 			return TRUE;
 	return FALSE;
 }
 
 void CElementManager::Tick(DWORD fElapsedTime) {
-	for (ElementsIt it(m_pEcho.begin()); it != m_pEcho.end();) {
+	for (ElementsIt it(m_pElements.begin()); it != m_pElements.end();) {
+		(*it)->Tick(fElapsedTime);
+		if ((*it)->IsGone()) {
+			SAFE_DELETE(*it);
+			it = m_pElements.erase(it);
+			continue;
+		}
+		++it;
+	}
+	for (LinesIt it(m_pEcho.begin()); it != m_pEcho.end();) {
 		(*it)->Tick(fElapsedTime);
 		if ((*it)->IsGone()) {
 			SAFE_DELETE(*it);
@@ -87,7 +98,7 @@ void CElementManager::Tick(DWORD fElapsedTime) {
 		}
 		++it;
 	}
-	for (ElementsIt it(m_pAmbience.begin()); it != m_pAmbience.end();) {
+	for (LinesIt it(m_pAmbience.begin()); it != m_pAmbience.end();) {
 		(*it)->Tick(fElapsedTime);
 		if ((*it)->IsGone()) {
 			SAFE_DELETE(*it);
@@ -99,8 +110,10 @@ void CElementManager::Tick(DWORD fElapsedTime) {
 }
 
 void CElementManager::Render(const D3DXVECTOR3& pos, BOOL highQuality) {
-	for (ElementsIt it(m_pEcho.begin()); it != m_pEcho.end(); ++it)
+	for (ElementsIt it(m_pElements.begin()); it != m_pElements.end(); ++it)
+		(*it)->Render(pos);
+	for (LinesIt it(m_pEcho.begin()); it != m_pEcho.end(); ++it)
 		(*it)->Render(pos, highQuality);
-	for (ElementsIt it(m_pAmbience.begin()); it != m_pAmbience.end(); ++it)
+	for (LinesIt it(m_pAmbience.begin()); it != m_pAmbience.end(); ++it)
 		(*it)->Render(pos, highQuality);
 }

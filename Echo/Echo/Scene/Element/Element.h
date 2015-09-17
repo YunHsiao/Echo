@@ -14,7 +14,7 @@ public:
 		BOOL fadeIn = FALSE, DWORD color = 0xFFFFFF, BOOL ui = FALSE);
 	virtual ~CElement();
 	virtual void Tick(DWORD fElapsedTime);
-	virtual ID3DXSprite* Render(const D3DXVECTOR3& pos = g_vScreenOrigin, BOOL highQuality = FALSE);
+	virtual ID3DXSprite* Render(const D3DXVECTOR3& pos = g_vScreenOrigin);
 	inline FLOAT GetIntensity() { return m_fIntensity; }
 	inline BOOL IsGone() { return m_fIntensity < 0.f || m_fIntensity > 1.f; }
 	inline D3DXVECTOR3& GetCoord() { return m_vPos; }

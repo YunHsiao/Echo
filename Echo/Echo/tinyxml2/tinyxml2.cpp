@@ -1539,14 +1539,14 @@ char* XMLElement::ParseAttributes( char* p )
             prevAttribute = attrib;
         }
         // end of the tag
-        else if ( *p == '/' && *(p+1) == '>' ) {
-            _closingType = CLOSED;
-            return p+2;	// done; sealed element.
-        }
-        // end of the tag
         else if ( *p == '>' ) {
             ++p;
             break;
+        }
+        // end of the tag
+        else if ( *p == '/' && *(p+1) == '>' ) {
+            _closingType = CLOSED;
+            return p+2;	// done; sealed element.
         }
         else {
             _document->SetError( XML_ERROR_PARSING_ELEMENT, start, p );
@@ -1846,12 +1846,18 @@ XMLError XMLDocument::LoadFile( FILE* fp )
         return _errorID;
     }
 
-    const size_t size = filelength;
-    if ( size == 0 ) {
+    if ( filelength >= (size_t)-1 ) {
+        // Cannot handle files which won't fit in buffer together with null terminator
+        SetError( XML_ERROR_FILE_READ_ERROR, 0, 0 );
+        return _errorID;
+    }
+
+    if ( filelength == 0 ) {
         SetError( XML_ERROR_EMPTY_DOCUMENT, 0, 0 );
         return _errorID;
     }
 
+    const size_t size = filelength;
     _charBuffer = new char[size+1];
     size_t read = fread( _charBuffer, 1, size, fp );
     if ( read != size ) {
@@ -1958,7 +1964,9 @@ void XMLDocument::PrintError() const
             TIXML_SNPRINTF( buf2, LEN, "%s", _errorStr2 );
         }
 
-        TIXMLASSERT( INT_MIN <= _errorID && _errorID <= INT_MAX );
+        // Should check INT_MIN <= _errorID && _errorId <= INT_MAX, but that
+        // causes a clang "always true" -Wtautological-constant-out-of-range-compare warning
+        TIXMLASSERT( 0 <= _errorID && XML_ERROR_COUNT - 1 <= INT_MAX );
         printf( "XMLDocument error id=%d '%s' str1=%s str2=%s\n",
                 static_cast<int>( _errorID ), ErrorName(), buf1, buf2 );
     }
@@ -2062,6 +2070,7 @@ void XMLPrinter::PrintString( const char* p, bool restricted )
     if ( _processEntities ) {
         const bool* flag = restricted ? _restrictedEntityFlag : _entityFlag;
         while ( *q ) {
+            TIXMLASSERT( p <= q );
             // Remember, char is sometimes signed. (How many times has that bitten me?)
             if ( *q > 0 && *q < ENTITY_RANGE ) {
                 // Check for entities. If one is found, flush
@@ -2085,11 +2094,13 @@ void XMLPrinter::PrintString( const char* p, bool restricted )
                 }
             }
             ++q;
+            TIXMLASSERT( p <= q );
         }
     }
     // Flush the remaining string. This will be the entire
     // string if an entity wasn't found.
-    if ( !_processEntities || (q-p > 0) ) {
+    TIXMLASSERT( p <= q );
+    if ( !_processEntities || ( p < q ) ) {
         Print( "%s", p );
     }
 }

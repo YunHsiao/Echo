@@ -1,5 +1,6 @@
 #pragma once
 #include "Element.h"
+#include "Point.h"
 
 class CLine : public CElement {
 
@@ -9,13 +10,13 @@ public:
 	~CLine();
 	virtual void Tick(DWORD fElapsedTime);
 	virtual ID3DXSprite *Render(const D3DXVECTOR3& pos, BOOL highQuality);
-	typedef std::deque<D3DXVECTOR3> EchoPoints;
-	typedef std::deque<D3DXVECTOR3>::iterator EchoPointsIt;
-	typedef std::deque<D3DXVECTOR3>::size_type EchoPointsIndex;
+	typedef std::deque<CPoint> EchoPoints;
+	typedef std::deque<CPoint>::iterator EchoPointsIt;
+	typedef std::deque<CPoint>::size_type EchoPointsIndex;
 
 protected:
-	void RenderPoint(ID3DXSprite *sprite, const D3DXVECTOR3& lerp, 
-					 const D3DXVECTOR3& pos, UINT& type, FLOAT& intensity);
+	void RenderPoint(ID3DXSprite *sprite, EchoPointsIt it, 
+		const D3DXVECTOR3& pos, const FLOAT& intensity);
 	void DetectCollision();
 	EchoPoints m_pEcho;
 	RECT m_rHead, m_rTail;

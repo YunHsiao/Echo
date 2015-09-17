@@ -6,7 +6,7 @@ CLine::CLine(const D3DXVECTOR3& pos, const D3DXVECTOR3& dir, FLOAT intensity,
 		const SMap *map, BOOL quiet, FLOAT lastTime, FLOAT length, DWORD color, UINT index)
 :CElement(RL_ECHO, map, pos, dir, lastTime, intensity, 1.f/32, .2f, FALSE, color)
 ,m_bQuiet(quiet)
-,m_fLength(length)
+,m_fLength(1/length)
 ,m_bFaded(FALSE)
 ,m_mapIndex(index)
 {
@@ -19,16 +19,36 @@ CLine::CLine(const D3DXVECTOR3& pos, const D3DXVECTOR3& dir, FLOAT intensity,
 }
 
 CLine::~CLine() {
-	
+
 }
 
 void CLine::DetectCollision() {
 	if (!m_pMap) return;
 	/// Model 2: Turn back if throughed.
 	/// Cons: Some will break through edges.
-	m_bTurned = m_pMap->GetArea(MT_WALL, m_mapIndex)->ReflectCollision(m_vPos, m_vDir, m_bTurned);
-	if (m_bQuiet) m_pEcho.push_back(m_vPos);
-	else m_pEcho.push_front(m_vPos);
+	m_bTurned = m_pMap->GetArea(MT_WALL, m_mapIndex)->
+		ReflectCollision(m_vPos, m_vDir, m_bTurned);
+	if (m_pEcho.empty()) {
+		m_pEcho.push_back(CPoint(m_vPos, m_pMap->GetRenderEffect(m_vPos)));
+	} else {
+		if (m_bQuiet) {
+			D3DXVECTOR3 *pre = &m_pEcho.back().GetPos();
+			D3DXVECTOR3 lerp = m_vPos - *pre;
+			FLOAT step = 1.f / D3DXVec3Length(&lerp);
+			for (FLOAT s(0); s < 1.f; s += step) {
+				D3DXVec3Lerp(&lerp, pre, &m_vPos, s);
+				m_pEcho.push_back(CPoint(lerp, m_pMap->GetRenderEffect(lerp)));
+			}
+		} else {
+			D3DXVECTOR3 *pre = &m_pEcho.front().GetPos();
+			D3DXVECTOR3 lerp = m_vPos - *pre;
+			FLOAT step = 1.f / D3DXVec3Length(&lerp);
+			for (FLOAT s(0); s < 1.f; s += step) {
+				D3DXVec3Lerp(&lerp, pre, &m_vPos, s);
+				m_pEcho.push_front(CPoint(lerp, m_pMap->GetRenderEffect(lerp)));
+			}
+		}
+	}
 
 	/// Model 1: Roll back to previous if throughed.
 	///	Cons: Some will stay still on egdes and flash.
@@ -74,57 +94,41 @@ ID3DXSprite* CLine::Render(const D3DXVECTOR3& pos, BOOL highQuality) {
 	if (IsGone()) return NULL;
 	ID3DXSprite* sprite = CDirect3D9::GetInstance()->GetSprite();
 	m_pRect = &m_rTail;
-	UINT type;
-	D3DXVECTOR3 *cur, *pre;
-	D3DXVECTOR3 lerp;
-	FLOAT step, intensity(m_fIntensity);
+	FLOAT intensity(m_fIntensity);
 	for (EchoPointsIt it(m_pEcho.begin()); it != m_pEcho.end(); ++it) {
-		if (highQuality) {
-			if (it == m_pEcho.end()-1) break;
-			pre = &*it; cur = &*(it+1);
-			lerp = *cur - *pre;
-			step = 1.f / D3DXVec3Length(&lerp);
-			for (FLOAT s(0); s < 1.f; s += step) {
-				D3DXVec3Lerp(&lerp, pre, cur, s);
-				type = m_pMap->GetRenderEffect(lerp);
-				RenderPoint(sprite, lerp, pos, type, intensity);
-				intensity -= 1.f / m_fLength;
-				if (intensity <= 0.f) { if (m_bQuiet) m_bFaded = TRUE; return sprite; }
-			}
-		} else {
-			lerp = *it;
-			type = m_pMap->GetRenderEffect(lerp);
-			RenderPoint(sprite, lerp, pos, type, intensity);
-			intensity -= 4.f / m_fLength;
-			if (intensity <= 0.f) { if (m_bQuiet) m_bFaded = TRUE; return sprite; }
+		RenderPoint(sprite, it, pos, intensity);
+		intensity -= m_fLength;
+		if (intensity <= 0.f) { 
+			//m_pEcho.erase(it+1, m_pEcho.end());
+			if (m_bQuiet) m_bFaded = TRUE; 
+			return sprite; 
 		}
 	}
+	if (m_pEcho.empty()) return sprite;
 	m_pRect = &m_rHead;
-	lerp = m_vPos;
-	type = m_pMap->GetRenderEffect(lerp);
-	if (!m_bQuiet) intensity = m_fIntensity;
-	RenderPoint(sprite, lerp, pos, type, intensity);
+	if (m_bQuiet) RenderPoint(sprite, m_pEcho.end()-1, pos, intensity);
+	else RenderPoint(sprite, m_pEcho.begin(), pos, m_fIntensity);
 	return sprite;
 }
 
-void CLine::RenderPoint(ID3DXSprite *sprite, const D3DXVECTOR3& lerp, 
-						const D3DXVECTOR3& pos, UINT& type, FLOAT& intensity) 
+void CLine::RenderPoint(ID3DXSprite *sprite, EchoPointsIt it, 
+						const D3DXVECTOR3& pos, const FLOAT& intensity)
 {
-	if (type == MT_EXIT) {
+	if (it->GetCol() == MT_EXIT) {
 		D3DXMatrixScaling(&m_mSca, 1.f/16, 1.f/16, 1.f);
 	} else {
 		D3DXMatrixScaling(&m_mSca, 1.f/32, 1.f/32, 1.f);
 	}
 	m_mWor = m_mRot * m_mSca * m_mTra;
-	m_mWor._41 = lerp.x - pos.x;
-	m_mWor._42 = lerp.y - pos.y;
+	m_mWor._41 = it->GetPos().x - pos.x;
+	m_mWor._42 = it->GetPos().y - pos.y;
 	sprite->SetTransform(&m_mWor);
 	if (m_color != 0xFFFFFF) {
 		sprite->Draw(m_pText, m_pRect, &m_vSize, NULL, 
 			((((DWORD)((intensity)*255.f))&0xff)<<24)|m_color);
 		return;
 	}
-	switch (type) {
+	switch (it->GetCol()) {
 	case MT_EXIT:
 		sprite->Draw(m_pText, m_pRect, &m_vSize, NULL, 
 			((((DWORD)((intensity)*255.f))&0xff)<<24)|m_color);

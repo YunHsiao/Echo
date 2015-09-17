@@ -21,15 +21,14 @@ void CSceneManager::LoadScene() {
 }
 
 BOOL CSceneManager::Tick(DWORD fElapsedTime) {
-	BOOL bNext(FALSE);
 	if (!m_scene) return FALSE;
 	if (m_scene->Tick(fElapsedTime)) {
 		CElementManager::GetInstance()->Clear();
-		if (m_scene->IsAlive()) { ++m_nLevel; bNext = TRUE; }
+		if (m_scene->IsAlive()) ++m_nLevel;
 		SAFE_DELETE(m_scene)
 		m_scene = new CScene(m_nLevel);
 		m_nLevel = m_scene->GetLevel();
-		if (bNext && m_nLevel == 1) return TRUE;
+		if (m_nLevel == 1) return TRUE;
 	}
 	return FALSE;
 }

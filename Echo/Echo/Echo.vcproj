@@ -401,6 +401,10 @@
 					RelativePath=".\Scene\Element\Line.h"
 					>
 				</File>
+				<File
+					RelativePath=".\Scene\Element\Point.h"
+					>
+				</File>
 			</Filter>
 			<Filter
 				Name="Map"
